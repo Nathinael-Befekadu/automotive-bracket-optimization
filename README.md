@@ -84,18 +84,30 @@ Run the program:
 ```bash
 python main.py
 ```
-Note: The program's expected local data-folder structure must match the paths used in `main.py` when running it from a downloaded copy of this repository.
-6. Engineering Drawing
+**Note:** The program's expected local data-folder structure must match the paths used in `main.py` when running it from a downloaded copy of this repository.
+
+## 6. Engineering Drawing
+
 ![Final Engineering Drawing](figures/final_bracket_drawing.png)
+
 The drawing includes principal dimensions, mounting-hole locations, material, and the final design designation AMB-001.
-View Engineering Drawing — AMB-001 (PDF)
-7. Full Engineering Report
+
+[View Engineering Drawing — AMB-001 (PDF)](documentation/AMB-001_Drawing.pdf)
+
+## 7. Full Engineering Report
+
 The technical report documents the design methodology, FEA setup, seven design iterations, mesh-refinement results, material comparison, engineering calculations, final SolidWorks results, and study limitations.
-View Full Engineering Report (PDF)
-8. Study Limitations
+
+[View Full Engineering Report (PDF)](documentation/Engineering_Report.pdf)
+
+## 8. Study Limitations
+
 The analysis represents a simplified linear-static loading case with idealized fixed supports. It does not include fatigue, vibration, impact, bolt preload, detailed contact behavior, or physical prototype testing. Additional analysis and validation would be needed before using the design in a real automotive assembly.
-9. Conclusion
-The final bracket achieved a 49.19% mass reduction, with a recorded maximum von Mises stress of 32.37 MPa, maximum displacement of 0.09300 mm, and yield-based factor of safety of 8.50 under the assumed 100 N static load.
+
+## 9. Conclusion
+
+The final bracket achieved a **49.19% mass reduction**, with a recorded maximum von Mises stress of **32.37 MPa**, maximum displacement of **0.09300 mm**, and yield-based factor of safety of **8.50** under the assumed 100 N static load.
+
 The project demonstrates an integrated workflow involving CAD design, structural simulation, mesh refinement, Python-based engineering analysis, and technical documentation.
 ---
 Project Type: Independent Mechanical Engineering Project  
