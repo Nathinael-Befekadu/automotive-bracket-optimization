@@ -1,0 +1,311 @@
+
+════════════════════════════════════════════════════════════════════════════════
+  ENGINEERING ANALYSIS REPORT
+════════════════════════════════════════════════════════════════════════════════
+  Lightweight Automotive Mounting Bracket Optimization
+  Generated  : October 23, 2026  12:16 AM
+  Author     : Nathinael Befekadu | St. Mary's University
+  Software   : SolidWorks Simulation + Python Analysis Tool
+
+  ── 1. PROJECT OVERVIEW ──
+
+    Objective : Minimize bracket mass while maintaining structural integrity.
+    Baseline mass                : 219.82 g
+    Minimum required FoS         : 3.0
+    Maximum allowable displacement: 0.1 mm
+
+  ── 2. BRACKET DESIGNS AND MATERIAL PROPERTIES ──
+
+    Bracket Design 1:
+      Material                      : 6061-T6 Aluminum
+      Yield Strength                : 275.0 MPa
+      Mass                          : 219.82 g
+      Thickness — Vertical          : 8.0 mm
+      Thickness — Horizontal        : 8.0 mm
+      Height                        : 80.0 mm
+      Width                         : 60.0 mm
+      Length/Depth                  : 100.0 mm
+      Mounting Hole Ø               : 10.0 mm
+      Load Hole Ø                   : 10.0 mm
+      Fillet — Vertical             : 5.0 mm
+      Fillet — Horizontal           : 0.0 mm
+      Fillet — Junction             : 8.0 mm
+      Mass Reduction                : 0.00%
+
+    Bracket Design 2:
+      Material                      : 6061-T6 Aluminum
+      Yield Strength                : 275.0 MPa
+      Mass                          : 188.26 g
+      Thickness — Vertical          : 8.0 mm
+      Thickness — Horizontal        : 6.0 mm
+      Height                        : 78.0 mm
+      Width                         : 60.0 mm
+      Length/Depth                  : 100.0 mm
+      Mounting Hole Ø               : 10.0 mm
+      Load Hole Ø                   : 10.0 mm
+      Fillet — Vertical             : 5.0 mm
+      Fillet — Horizontal           : 0.0 mm
+      Fillet — Junction             : 8.0 mm
+      Mass Reduction                : 14.36%
+
+    Bracket Design 3:
+      Material                      : 6061-T6 Aluminum
+      Yield Strength                : 275.0 MPa
+      Mass                          : 167.76 g
+      Thickness — Vertical          : 8.0 mm
+      Thickness — Horizontal        : 4.7 mm
+      Height                        : 76.7 mm
+      Width                         : 60.0 mm
+      Length/Depth                  : 100.0 mm
+      Mounting Hole Ø               : 10.0 mm
+      Load Hole Ø                   : 10.0 mm
+      Fillet — Vertical             : 5.0 mm
+      Fillet — Horizontal           : 0.0 mm
+      Fillet — Junction             : 8.0 mm
+      Mass Reduction                : 23.68%
+
+    Bracket Design 4:
+      Material                      : 6061-T6 Aluminum
+      Yield Strength                : 275.0 MPa
+      Mass                          : 150.62 g
+      Thickness — Vertical          : 6.5 mm
+      Thickness — Horizontal        : 4.7 mm
+      Height                        : 76.7 mm
+      Width                         : 60.0 mm
+      Length/Depth                  : 100.0 mm
+      Mounting Hole Ø               : 10.0 mm
+      Load Hole Ø                   : 10.0 mm
+      Fillet — Vertical             : 5.0 mm
+      Fillet — Horizontal           : 0.0 mm
+      Fillet — Junction             : 8.0 mm
+      Mass Reduction                : 31.48%
+
+    Bracket Design 5:
+      Material                      : 6061-T6 Aluminum
+      Yield Strength                : 275.0 MPa
+      Mass                          : 142.1 g
+      Thickness — Vertical          : 6.5 mm
+      Thickness — Horizontal        : 5.0 mm
+      Height                        : 77.0 mm
+      Width                         : 55.0 mm
+      Length/Depth                  : 100.0 mm
+      Mounting Hole Ø               : 10.0 mm
+      Load Hole Ø                   : 10.0 mm
+      Fillet — Vertical             : 5.0 mm
+      Fillet — Horizontal           : 15.0 mm
+      Fillet — Junction             : 8.0 mm
+      Mass Reduction                : 35.36%
+      Notes                         : Junction fillet (outside): 15 mm; no horizontal cutout
+
+    Bracket Design 6:
+      Material                      : 6061-T6 Aluminum
+      Yield Strength                : 275.0 MPa
+      Mass                          : 124.08 g
+      Thickness — Vertical          : 6.5 mm
+      Thickness — Horizontal        : 5.0 mm
+      Height                        : 77.0 mm
+      Width                         : 55.0 mm
+      Length/Depth                  : 100.0 mm
+      Mounting Hole Ø               : 10.0 mm
+      Load Hole Ø                   : 10.0 mm
+      Fillet — Vertical             : 5.0 mm
+      Fillet — Horizontal           : 15.0 mm
+      Fillet — Junction             : 8.0 mm
+      Mass Reduction                : 43.55%
+      Notes                         : Horizontal cutout diameter: 30mm, junction fillet (outside): 15mm
+
+    Bracket Design 7:
+      Material                      : 6061-T6 Aluminum
+      Yield Strength                : 275.0 MPa
+      Mass                          : 111.68 g
+      Thickness — Vertical          : 6.5 mm
+      Thickness — Horizontal        : 5.0 mm
+      Height                        : 77.0 mm
+      Width                         : 55.0 mm
+      Length/Depth                  : 100.0 mm
+      Mounting Hole Ø               : 10.0 mm
+      Load Hole Ø                   : 10.0 mm
+      Fillet — Vertical             : 5.0 mm
+      Fillet — Horizontal           : 15.0 mm
+      Fillet — Junction             : 8.0 mm
+      Mass Reduction                : 49.19%
+      Notes                         : Horizontal cutout diameter: 30mm, junction fillet (outside): 15mm, Vertical cutout diameter: 30mm
+
+
+  ── 3. SIMULATION RESULTS ──
+
+    Bracket Design 1 — 6061-T6 Aluminum — 219.82 g
+      Simulation: Baseline
+        Applied Force       : 100.0 N  -y
+        Fixtures            : Fixed at 2 mounting holes
+        Elements / Nodes    : 64,327 / 97,642
+        Max von Mises Stress: 12.7500 MPa
+        Max Displacement    : 0.021140 mm
+        Factor of Safety    : 21.569
+        Result              : PASS ✓
+
+    Bracket Design 2 — 6061-T6 Aluminum — 188.26 g
+      Simulation: Base_6mm
+        Applied Force       : 100.0 N  -y
+        Fixtures            : Fixed at 2 mounting holes
+        Elements / Nodes    : 63,418 / 97,285
+        Max von Mises Stress: 20.7900 MPa
+        Max Displacement    : 0.046600 mm
+        Factor of Safety    : 13.228
+        Result              : PASS ✓
+
+    Bracket Design 3 — 6061-T6 Aluminum — 167.76 g
+      Simulation: Base_4.7mm
+        Applied Force       : 100.0 N  -y
+        Fixtures            : Fixed at 2 mounting holes
+        Elements / Nodes    : 66,658 / 102,407
+        Max von Mises Stress: 32.8800 MPa
+        Max Displacement    : 0.092420 mm
+        Factor of Safety    : 8.364
+        Result              : PASS ✓
+
+    Bracket Design 4 — 6061-T6 Aluminum — 150.62 g
+      Simulation: Upright_6.5mm
+        Applied Force       : 100.0 N  -y
+        Fixtures            : Fixed at 2 mounting holes
+        Elements / Nodes    : 68,523 / 106,060
+        Max von Mises Stress: 34.2700 MPa
+        Max Displacement    : 0.098190 mm
+        Factor of Safety    : 8.025
+        Result              : PASS ✓
+
+    Bracket Design 5 — 6061-T6 Aluminum — 142.1 g
+      Simulation: Width_Base_Opt
+        Applied Force       : 100.0 N  -y
+        Fixtures            : Fixed at 2 mounting holes
+        Elements / Nodes    : 65,585 / 101,455
+        Max von Mises Stress: 31.6700 MPa
+        Max Displacement    : 0.087470 mm
+        Factor of Safety    : 8.683
+        Result              : PASS ✓
+
+    Bracket Design 6 — 6061-T6 Aluminum — 124.08 g
+      Simulation: base_cutout_opt
+        Applied Force       : 100.0 N  -y
+        Fixtures            : Fixed at 2 mounting holes
+        Elements / Nodes    : 65,072 / 100,903
+        Max von Mises Stress: 31.9400 MPa
+        Max Displacement    : 0.093170 mm
+        Factor of Safety    : 8.610
+        Result              : PASS ✓
+
+    Bracket Design 7 — 6061-T6 Aluminum — 111.68 g
+      Simulation: final_mesh
+        Applied Force       : 100.0 N  -y
+        Fixtures            : Fixed at 2 mounting holes
+        Elements / Nodes    : 64,851 / 100,892
+        Max von Mises Stress: 32.3700 MPa
+        Max Displacement    : 0.093000 mm
+        Factor of Safety    : 8.496
+        Result              : PASS ✓
+
+      Simulation: mesh 1
+        Applied Force       : 100.0 N  -y
+        Fixtures            : Fixed at 2 mounting holes
+        Elements / Nodes    : 8,704 / 15,384
+        Max von Mises Stress: 25.5600 MPa
+        Max Displacement    : 0.092490 mm
+        Factor of Safety    : 10.759
+        Result              : PASS ✓
+
+      Simulation: Mesh 2
+        Applied Force       : 100.0 N  -y
+        Fixtures            : Fixed at 2 mounting holes
+        Elements / Nodes    : 10,925 / 18,875
+        Max von Mises Stress: 25.8000 MPa
+        Max Displacement    : 0.092460 mm
+        Factor of Safety    : 10.659
+        Result              : PASS ✓
+
+      Simulation: Mesh 3
+        Applied Force       : 100.0 N  -y
+        Fixtures            : Fixed at 2 mounting holes
+        Elements / Nodes    : 16,747 / 28,149
+        Max von Mises Stress: 26.9400 MPa
+        Max Displacement    : 0.092530 mm
+        Factor of Safety    : 10.208
+        Result              : PASS ✓
+
+      Simulation: Mesh 4
+        Applied Force       : 100.0 N  -y
+        Fixtures            : Fixed at 2 mounting holes
+        Elements / Nodes    : 25,304 / 41,113
+        Max von Mises Stress: 28.4800 MPa
+        Max Displacement    : 0.092740 mm
+        Factor of Safety    : 9.656
+        Result              : PASS ✓
+
+      Simulation: Mesh 5
+        Applied Force       : 100.0 N  -y
+        Fixtures            : Fixed at 2 mounting holes
+        Elements / Nodes    : 45,878 / 72,434
+        Max von Mises Stress: 31.0600 MPa
+        Max Displacement    : 0.092940 mm
+        Factor of Safety    : 8.854
+        Result              : PASS ✓
+
+      Simulation: Mesh 6
+        Applied Force       : 100.0 N  -y
+        Fixtures            : Fixed at 2 mounting holes
+        Elements / Nodes    : 55,843 / 87,592
+        Max von Mises Stress: 31.7600 MPa
+        Max Displacement    : 0.092980 mm
+        Factor of Safety    : 8.659
+        Result              : PASS ✓
+
+
+  ── 4. MESH CONVERGENCE SUMMARY ──
+
+    Mesh refinement was conducted on Design 7, the final optimized bracket.
+    The other designs were evaluated with individual static FEA simulations.
+    Bracket Design 7:
+      Simulation             Elements       Stress   Δ Stress%       Disp   Δ Disp%
+      ────────────────────────────────────────────────────────────────────────────
+      mesh 1                    8,704      25.5600           —   0.092490         —
+      Mesh 2                   10,925      25.8000     0.9390%   0.092460   0.0324%
+      Mesh 3                   16,747      26.9400     4.4186%   0.092530   0.0757%
+      Mesh 4                   25,304      28.4800     5.7164%   0.092740   0.2270%
+      Mesh 5                   45,878      31.0600     9.0590%   0.092940   0.2157%
+      Mesh 6                   55,843      31.7600     2.2537%   0.092980   0.0430%
+      final_mesh               64,851      32.3700     1.9207%   0.093000   0.0215%
+
+
+  ── 5. BRACKET COMPARISON (MOST-REFINED SIMULATION PER BRACKET) ──
+
+    Bracket       Mass g   Stress MPa    Disp mm      FoS   MassRed%   Result
+    ────────────────────────────────────────────────────────────────────────
+    Design 1      219.82      12.7500    0.02114   21.569       0.00     PASS
+    Design 2      188.26      20.7900    0.04660   13.228      14.36     PASS
+    Design 3      167.76      32.8800    0.09242    8.364      23.68     PASS
+    Design 4      150.62      34.2700    0.09819    8.025      31.48     PASS
+    Design 5      142.10      31.6700    0.08747    8.683      35.36     PASS
+    Design 6      124.08      31.9400    0.09317    8.610      43.55     PASS
+    Design 7      111.68      32.3700    0.09300    8.496      49.19     PASS
+
+  ── 6. ENGINEERING ASSUMPTIONS AND LIMITATIONS ──
+
+    1. Linear elastic material behavior assumed; results valid below yield strength.
+    2. FoS = Yield Strength (MPa) / Max von Mises Stress (MPa).
+    3. All FEA performed in SolidWorks Simulation.
+    4. For Design 7, the final two successive meshes differ by less than 2% in stress and displacement; this screening criterion does not establish complete mesh independence.
+    5. Load predictions via linear scaling are estimates only.
+    6. Stress singularities may appear at sharp corners or point-load locations.
+    7. Analysis does not include fatigue, dynamic loading, vibration, or thermal effects.
+    8. Material properties assumed homogeneous and isotropic.
+
+  ── 7. CONCLUSION ──
+
+    Seven SolidWorks bracket designs were evaluated using a consistent 100 N static load case.
+    Python was used to compare mass, stress, displacement and yield-based factor of safety.
+    The final design reduced mass from 219.82 g to 111.68 g (49.19%).
+    The results meet the selected project screening limits for this simplified static model.
+    See data/graphs/ for visual comparisons and mesh-refinement plots.
+
+════════════════════════════════════════════════════════════════════════════════
+  END OF REPORT
+════════════════════════════════════════════════════════════════════════════════
