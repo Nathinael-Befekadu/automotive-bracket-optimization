@@ -1403,6 +1403,33 @@ ACTIONS = {
 }
 
 
+
+# Convert legacy descriptive bracket names to numbered design labels without changing results.
+LEGACY_DESIGN_NAMES = {
+    'BASELINE BRACKET': 'Design 1',
+    'BASE THICKNESS REDUCTION - 6.0 MM': 'Design 2',
+    'FURTHER BASE THICKNESS REDUCTION - 4.7 MM': 'Design 3',
+    'UPRIGHT THICKNESS REDUCTION - 6.5 MM': 'Design 4',
+    'WIDTH AND BASE THICKNESS OPTIMIZATION': 'Design 5',
+    'BASE GEOMETRY AND CUTOUT OPTIMIZATION': 'Design 6',
+    'FINAL OPTIMIZED BRACKET - UPRIGHT CUTOUT': 'Design 7',
+ }
+
+def normalize_design_names(designs: dict, simulations: dict):
+    renamed_designs = {}
+    for old_name, design in designs.items():
+        name = LEGACY_DESIGN_NAMES.get(old_name, old_name)
+        renamed_designs[name] = {**design, "name": name}
+    renamed_sims = {}
+    for old_name, entries in simulations.items():
+        name = LEGACY_DESIGN_NAMES.get(old_name, old_name)
+        renamed_sims[name] = [{**entry, "bracket_name": name} for entry in entries]
+    if renamed_designs != designs:
+        save_designs(renamed_designs)
+    if renamed_sims != simulations:
+        save_simulations(renamed_sims)
+    return renamed_designs, renamed_sims
+
 def main():
     init_dirs()
     print("\n  Loading saved data…", end="", flush=True)
