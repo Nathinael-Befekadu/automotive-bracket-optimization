@@ -803,7 +803,7 @@ def _plot_convergence(name: str, sims_asc: list, conv_rows: list, tol: float):
 
     plt.tight_layout()
     ts   = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    path = GRAPHS_DIR / f"convergence_{name}_{ts}.png"
+    path = GRAPHS_DIR / "mesh_convergence.png"
     plt.savefig(path, dpi=150, bbox_inches="tight")
     plt.close()
     print(f"\n  ✓ Convergence graph saved: {path}")
@@ -915,7 +915,7 @@ def _plot_readable_comparisons(designs, simulations, min_fs, max_disp, ts):
             ax.text(b.get_x()+b.get_width()/2, b.get_height()+ymax*.018, label, ha="center", fontsize=8)
     fig.subplots_adjust(left=.09, right=.97, top=.91, bottom=.11, hspace=.38, wspace=.25)
     fig.text(.08,.025,"Green = meets specified screening criteria  •  Red = does not meet criteria",fontsize=9)
-    p1 = GRAPHS_DIR / f"comparison_bars_{ts}.png"
+    p1 = GRAPHS_DIR / "design_comparison.png"
     fig.savefig(p1,dpi=180,facecolor="white");plt.close(fig)
 
     fig, axes = plt.subplots(1, 3, figsize=(17, 7))
@@ -931,7 +931,7 @@ def _plot_readable_comparisons(designs, simulations, min_fs, max_disp, ts):
         ax.grid(alpha=.20)
         ax.margins(x=.14,y=.18)
     fig.subplots_adjust(left=.065,right=.98,top=.86,bottom=.14,wspace=.30)
-    p2=GRAPHS_DIR / f"comparison_scatter_{ts}.png"
+    p2=GRAPHS_DIR / "mass_performance.png"
     fig.savefig(p2,dpi=180,facecolor="white");plt.close(fig)
 
     fig,ax=plt.subplots(figsize=(11,7))
@@ -943,7 +943,7 @@ def _plot_readable_comparisons(designs, simulations, min_fs, max_disp, ts):
     for b,v in zip(bars,vals):
         ax.text(b.get_x()+b.get_width()/2,b.get_height()+max(vals)*.02,f"{v:.1f}%",ha="center",fontsize=10)
     fig.subplots_adjust(left=.10,right=.96,top=.89,bottom=.14)
-    p3=GRAPHS_DIR / f"mass_reduction_{ts}.png"
+    p3=GRAPHS_DIR / "mass_reduction.png"
     fig.savefig(p3,dpi=180,facecolor="white");plt.close(fig)
     return [p1,p2,p3]
 
@@ -1106,7 +1106,7 @@ def _text_report(designs, simulations, min_fs, max_disp) -> list:
         "Linear elastic material behavior assumed; results valid below yield strength.",
         "FoS = Yield Strength (MPa) / Max von Mises Stress (MPa).",
         "All FEA performed in SolidWorks Simulation.",
-        "For Design 7, the last two mesh refinements were compared using the selected 2% change criterion.",
+        "For Design 7, the final two successive meshes differ by less than 2% in stress and displacement; this screening criterion does not establish complete mesh independence.",
         "Load predictions via linear scaling are estimates only.",
         "Stress singularities may appear at sharp corners or point-load locations.",
         "Analysis does not include fatigue, dynamic loading, vibration, or thermal effects.",
@@ -1119,7 +1119,7 @@ def _text_report(designs, simulations, min_fs, max_disp) -> list:
     lines.append("    Python was used to compare mass, stress, displacement and yield-based factor of safety.")
     lines.append("    The final design reduced mass from 219.82 g to 111.68 g (49.19%).")
     lines.append("    The results meet the selected project screening limits for this simplified static model.")
-    lines.append("    See bracket_data/graphs/ for visual comparisons and mesh-refinement plots.")
+    lines.append("    See data/graphs/ for visual comparisons and mesh-refinement plots.")
     lines.append("")
     lines.append("═" * 80)
     lines.append("  END OF REPORT")
@@ -1293,7 +1293,7 @@ def _pdf_report(designs, simulations, min_fs, max_disp, pdf_path):
         pdf.cell(5, 6, "-", new_x=XPos.RIGHT, new_y=YPos.TOP)
         pdf.multi_cell(0, 6, a)
 
-    graphs = sorted(GRAPHS_DIR.glob("comparison_bars_*.png"))
+    graphs = sorted(GRAPHS_DIR.glob("design_comparison.png"))
     if graphs:
         pdf.add_page()
         section("Appendix A — Performance Comparison Graph")
@@ -1302,7 +1302,7 @@ def _pdf_report(designs, simulations, min_fs, max_disp, pdf_path):
         except Exception:
             pass
 
-    cg_all = sorted(GRAPHS_DIR.glob("convergence_*.png"))
+    cg_all = sorted(GRAPHS_DIR.glob("mesh_convergence.png"))
     if cg_all:
         pdf.add_page()
         section("Appendix B — Mesh Convergence Graphs")
@@ -1337,14 +1337,14 @@ def generate_report(designs: dict, simulations: dict):
     ts = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
 
     if MATPLOTLIB_OK:
-        existing_graphs = list(GRAPHS_DIR.glob("comparison_bars_*.png"))
+        existing_graphs = list(GRAPHS_DIR.glob("design_comparison.png"))
         if not existing_graphs:
             print("\n  Generating comparison graphs for report…")
             _silent_graphs(designs, simulations, min_fs, max_disp, ts)
         else:
             print("\n  Reusing existing engineering graphs (no duplicate copies created).")
 
-    txt_path = REPORTS_DIR / f"report_{ts}.txt"
+    txt_path = REPORTS_DIR / "engineering_analysis_report.txt"
     lines    = _text_report(designs, simulations, min_fs, max_disp)
     with open(txt_path, "w", encoding="utf-8") as f:
         f.write("\n".join(lines))
@@ -1355,7 +1355,7 @@ def generate_report(designs: dict, simulations: dict):
     print(f"  ✓ CSV export   : {csv_path}")
 
     if FPDF_OK:
-        pdf_path = REPORTS_DIR / f"report_{ts}.pdf"
+        pdf_path = REPORTS_DIR / "engineering_analysis_report.pdf"
         try:
             _pdf_report(designs, simulations, min_fs, max_disp, pdf_path)
             print(f"  ✓ PDF report   : {pdf_path}")
