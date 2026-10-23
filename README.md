@@ -109,8 +109,10 @@ The analysis represents a simplified linear-static loading case with idealized f
 The final bracket achieved a **49.19% mass reduction**, with a recorded maximum von Mises stress of **32.37 MPa**, maximum displacement of **0.09300 mm**, and yield-based factor of safety of **8.50** under the assumed 100 N static load.
 
 The project demonstrates an integrated workflow involving CAD design, structural simulation, mesh refinement, Python-based engineering analysis, and technical documentation.
+
 ---
-Project Type: Independent Mechanical Engineering Project  
-Tools: SolidWorks, SolidWorks Simulation, Python  
-Author: Nathinael Solomon Befekadu  
+
+Project Type: Independent Mechanical Engineering Project
+Tools: SolidWorks, SolidWorks Simulation, Python
+Author: Nathinael Solomon Befekadu
 St. Mary's University — Mechanical Engineering
