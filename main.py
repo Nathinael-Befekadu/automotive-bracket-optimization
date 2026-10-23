@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 ================================================================================
 LIGHTWEIGHT AUTOMOTIVE MOUNTING BRACKET OPTIMIZATION TOOL
@@ -12,7 +11,7 @@ Required libraries:
   pip install numpy matplotlib fpdf2
 
 Usage:
-  python bracket_optimizer.py
+  python main.py
 ================================================================================
 """
 
@@ -50,7 +49,7 @@ except ImportError:
 
 # ── Global constants ───────────────────────────────────────────────────────────
 BASELINE_MASS_G = 219.82
-DATA_DIR        = Path("bracket_data")
+DATA_DIR        = Path(__file__).resolve().parent / "data"
 DESIGNS_FILE    = DATA_DIR / "bracket_designs.json"
 SIMS_FILE       = DATA_DIR / "simulation_results.json"
 REPORTS_DIR     = DATA_DIR / "reports"
