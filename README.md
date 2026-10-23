@@ -1,5 +1,7 @@
 Lightweight Automotive Mounting Bracket Optimization
+
 SolidWorks | Finite Element Analysis (FEA) | Python | Structural Optimization
+
 An independent mechanical engineering project focused on designing, analyzing, and optimizing a lightweight automotive mounting bracket through iterative CAD modifications, finite element simulations, mesh refinement, and Python-based engineering analysis.
 The project achieved a 49.19% mass reduction while meeting the selected structural strength and stiffness criteria under an assumed 100 N static load.
 ![Final Automotive Mounting Bracket](figures/final_bracket_cad.png)
