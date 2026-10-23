@@ -113,6 +113,9 @@ The project demonstrates an integrated workflow involving CAD design, structural
 ---
 
 Project Type: Independent Mechanical Engineering Project
+
 Tools: SolidWorks, SolidWorks Simulation, Python
+
 Author: Nathinael Solomon Befekadu
+
 St. Mary's University — Mechanical Engineering
